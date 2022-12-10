@@ -4,23 +4,23 @@ const fs = require("fs");
 
 const server = http.createServer((req, res) => {
   if (req.url === "/") {
-    fs.readFile("Routing/index.html", (err, data) => {
+    fs.readFile("Routing/views/index.html", (err, data) => {
       res.writeHead(200, { "content-type": "text/html" });
       res.end(data);
     });
   } else if (req.url === "/about") {
-    fs.readFile("Routing/about.html", (err, data) => {
+    fs.readFile("Routing/views/about.html", (err, data) => {
       res.writeHead(200, { "content-type": "text/html" });
       res.end(data);
     });
   } else if (req.url === "/contact") {
-    fs.readFile("Routing/contact.html", (err, data) => {
+    fs.readFile("Routing/views/contact.html", (err, data) => {
       res.writeHead(200, { "content-type": "text/html" });
       res.end(data);
     });
   } else {
-    fs.readFile("Routing/error.html", (err, data) => {
-      res.writeHead(200, { "content-type": "text/html" });
+    fs.readFile("Routing/views/error.html", (err, data) => {
+      res.writeHead(404, { "content-type": "text/html" });
       res.end(data);
     });
   }
