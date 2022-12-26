@@ -1,10 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
+router.get("/user-reg", (req, res) => {
+  res.sendFile(__dirname+"/index.html");
+});
+
 router.post("/user-reg", (req, res) => {
   const name = req.body.name;
-  const id = req.body.id;
-  res.send(`The name is ${name} and The ID is ${id} `);
+  res.send(name);
 });
 
 module.exports = router;
